@@ -1,12 +1,13 @@
 <h1>Admin Dashboard</h1>
 
 <main class="admin-dash jumbotron">
-  <section class="admin-info panel">
-    <p>Products:</p>
-    <p><%= @product_count %></p>
+  <section class="admin-info panel" onclick="window.location='<%= admin_products_path %>'">
+    <p class="item-type">Products</p>
+    <span class="item-count"><%= @product_count %></span>
   </section>
-  <section class="admin-info panel">
-    <p>Categories:</p>
-    <p><%= @category_count %><p>
+  <%# todo: replace link in this panel to categories page when available %>
+  <section class="admin-info panel" onclick="window.location='<%= admin_products_path %>'">
+    <p class="item-type">Categories</p>
+    <span class="item-count"><%= @category_count %><span>
   </section>
 </main>

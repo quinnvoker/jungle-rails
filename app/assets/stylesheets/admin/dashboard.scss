@@ -1,11 +1,28 @@
-main.admin-dash{
+main.admin-dash {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
 
-  .admin-info{
+  .admin-info {
     display: flex;
     flex-direction: column;
     align-items: center;
+    flex-grow: 1;
+    padding: 1em;
+    margin: 1em;
+    cursor: pointer;
+
+    .item-type {
+      border-bottom: 1px solid lightgray;
+    }
+
+    .item-count {
+      font-size: 2em;
+      font-weight: bolder;
+    }
+
+    &:hover {
+      background-color: #fafafa;
+    }
   }
 }
