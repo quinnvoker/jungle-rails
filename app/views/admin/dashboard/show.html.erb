@@ -1,12 +1,18 @@
-<h1>Admin &raquo; Dashboard</h1>
+<section class="admin-dashboard">
 
-<main class="admin-dash jumbotron">
-  <section class="admin-info panel" onclick="window.location='<%= admin_products_path %>'">
-    <p class="item-type">Products</p>
-    <span class="item-count"><%= @product_count %></span>
-  </section>
-  <section class="admin-info panel" onclick="window.location='<%= admin_categories_path %>'">
-    <p class="item-type">Categories</p>
-    <span class="item-count"><%= @category_count %><span>
-  </section>
-</main>
+  <header class="page-header">
+    <h1>Admin &raquo; All Products</h1>
+  </header>
+
+  <article class="admin-info jumbotron">
+    <section class="info-panel panel" onclick="window.location='<%= admin_products_path %>'">
+      <p class="item-type">Products</p>
+      <span class="item-count"><%= @product_count %></span>
+    </section>
+    <section class="info-panel panel" onclick="window.location='<%= admin_categories_path %>'">
+      <p class="item-type">Categories</p>
+      <span class="item-count"><%= @category_count %><span>
+    </section>
+  </article>
+
+</section>
