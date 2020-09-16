@@ -19,8 +19,9 @@
         </tr>
       </thead>
       <tbody>
-        <% enhanced_cart.each do |item| %>
-          <%= render 'item', product: item[:product], quantity: item[:quantity].to_i %>
+        <% @order.line_items.each do |line_item| %>
+          <% product = Product.find(line_item.product_id) %>
+          <%= render 'line_item', product: product, quantity: line_item[:quantity].to_i %>
         <% end %>
       </tbody>
       <tfoot>
