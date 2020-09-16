@@ -7,6 +7,9 @@
 @import "products";
 @import "orders";
 
+// Admin
+@import "admin/dashboard.scss";
+
 // Global
 body {
   padding-top: 70px;
