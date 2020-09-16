@@ -5,7 +5,7 @@
   </header>
 
   <div class="order-summary jumbotron">
-    <h4>Thank you for your order!</h4>
+    <h4>Thank you for your order! Your order details are below:</h4>
     <div class="panel panel-default items">
       <table class="table table-bordered">
         <thead>
@@ -34,6 +34,7 @@
         </tfoot>
       </table>
     </div>
+    <h4>Details have also been emailed to you at: <%= @order.email %></h4>
   </div>
 
 
