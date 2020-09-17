@@ -1,4 +1,6 @@
-class AboutController < ApplicationController
+class AboutController < ApplicationController\
+
   def show
   end
+  
 end
