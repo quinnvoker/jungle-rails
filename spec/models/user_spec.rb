@@ -56,5 +56,21 @@ RSpec.describe User, type: :model do
         expect(user_copy.errors.full_messages).to include("Email has already been taken")
       end
     end
+
+    describe 'Names' do
+      it 'should fail to save with no first name' do
+        user = User.new(last_name: 'Smith', email: 'john@smith.com', password: 'jonny', password_confirmation: 'jonny')
+        user.save
+  
+        expect(user.errors.full_messages).to include("First name can't be blank")
+      end
+
+      it 'should fail to save with no last name' do
+        user = User.new(first_name: 'John', email: 'john@smith.com', password: 'jonny', password_confirmation: 'jonny')
+        user.save
+  
+        expect(user.errors.full_messages).to include("Last name can't be blank")
+      end
+    end
   end
 end
