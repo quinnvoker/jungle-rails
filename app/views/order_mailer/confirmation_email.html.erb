@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h4>Thank you for your order! Your order details are below:</h4>
+    <table>
+      <thead>
+        <tr>
+          <th colspan="2">Product</th>
+          <th>Unit Price</th>
+          <th>Quantity</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @order.line_items.each do |line_item| %>
+          <% product = Product.find(line_item.product_id) %>
+          <%= render 'line_item', product: product, quantity: line_item[:quantity].to_i %>
+        <% end %>
+      </tbody>
+      <tfoot>
+        <tr>
+          <th colspan="4">
+            TOTAL:
+          </th>
+          <th>
+            <%= humanized_money_with_symbol @order.total_cents / 100.0 %>
+          </th>
+        </tr>
+      </tfoot>
+    </table>
+  </body>
+</html>
+
