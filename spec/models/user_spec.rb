@@ -73,4 +73,38 @@ RSpec.describe User, type: :model do
       end
     end
   end
+
+  describe '.authenticate_with_credentials' do
+    it 'should return the user when given valid email and passord' do
+      user = User.create(first_name: 'John', last_name: 'Smith', email: 'john@smith.com', password: 'jonny', password_confirmation: 'jonny')
+      
+      authenticated = User.authenticate_with_credentials('john@smith.com', 'jonny')
+
+      expect(authenticated).to eql(user)
+    end
+
+    it 'should return nil if given invalid email and password combination' do
+      user = User.create(first_name: 'John', last_name: 'Smith', email: 'john@smith.com', password: 'jonny', password_confirmation: 'jonny')
+      
+      authenticated = User.authenticate_with_credentials('john@smith.com', 'jony')
+
+      expect(authenticated).to be nil
+    end
+
+    it 'should ignore whitespace before and after email' do
+      user = User.create(first_name: 'John', last_name: 'Smith', email: 'john@smith.com', password: 'jonny', password_confirmation: 'jonny')
+      
+      authenticated = User.authenticate_with_credentials(' john@smith.com  ', 'jonny')
+
+      expect(authenticated).to eql(user)
+    end
+
+    it 'should ignore case of email' do
+      user = User.create(first_name: 'John', last_name: 'Smith', email: 'john@smith.com', password: 'jonny', password_confirmation: 'jonny')
+      
+      authenticated = User.authenticate_with_credentials('john@SMITH.com', 'jonny')
+
+      expect(authenticated).to eql(user)
+    end
+  end
 end
