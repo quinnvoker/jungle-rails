@@ -23,6 +23,30 @@ end
 
 ## CATEGORIES
 
+puts "Creating Users ..."
+
+user1 = User.create!({
+  first_name: 'Jimbo',
+  last_name: 'Elbertson',
+  email: 'jimbo@speedmail.com',
+  password: 'tastycake', 
+  password_confirmation: 'tastycake'
+})
+user2 = User.create!({
+  first_name: 'Walnut',
+  last_name: 'Collector',
+  email: 'nuttyprofessor@nutsfornuts.com',
+  password: 'walnutbutter',
+  password_confirmation: 'walnutbutter'
+})
+user3 = User.create!({
+  first_name: 'Eleanor',
+  last_name: 'Hogglesworth',
+  email: 'blueskyrain@homtail.com',
+  password: 'ambivalence',
+  password_confirmation: 'ambivalence'
+})
+
 puts "Finding or Creating Categories ..."
 
 cat1 = Category.find_or_create_by! name: 'Apparel'
@@ -67,7 +91,7 @@ cat1.products.create!({
   price: 25.00
 })
 
-cat1.products.create!({
+shoes = cat1.products.create!({
   name:  'Russian Spy Shoes',
   description: Faker::Hipster.paragraph(4),
   image: open_asset('apparel5.jpg'),
@@ -100,7 +124,7 @@ cat2.products.create!({
   price: 26.00
 })
 
-cat2.products.create!({
+watch = cat2.products.create!({
   name:  'World\'s Largest Smartwatch',
   description: Faker::Hipster.paragraph(4),
   image: open_asset('electronics3.jpg'),
@@ -116,7 +140,7 @@ cat3.products.create!({
   price: 3_052.00
 })
 
-cat3.products.create!({
+chair = cat3.products.create!({
   name:  'Electric Chair',
   description: Faker::Hipster.paragraph(4),
   image: open_asset('furniture2.jpg'),
@@ -132,5 +156,34 @@ cat3.products.create!({
   price: 2_483.75
 })
 
+puts "Creating Reviews ..."
+
+shoes.reviews.create!({
+  user_id: user1.id,
+  rating: 4,
+  description: "These shoes aren't shoes to let you become like a Russian spy, they are actually shoes that let Russians spy on you! Work very well though."
+})
+
+shoes.reviews.create!({
+  user_id: user3.id,
+  rating: 2
+})
+
+watch.reviews.create!({
+  user_id: user2.id,
+  rating: 5,
+  description: "I can't feel my fingers anymore, but with this much functionality, who needs them?"
+})
+
+shoes.reviews.create!({
+  user_id: user3.id,
+  rating: 4
+})
+
+chair.reviews.create!({
+  user_id: user3.id,
+  rating: 1,
+  description: "Shockingly bad!!!"
+})
 
 puts "DONE!"
