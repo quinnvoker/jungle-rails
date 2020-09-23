@@ -13,18 +13,27 @@ class ReviewsController < ApplicationController
     end
   end
 
-  def review_params
-    params.require(:review).permit(
-      :rating, 
-      :description,
-      :product_id
-    )
+  def destroy
+    @product = Product.find params['product_id']
+    @review = Review.find params['format']
+    @review.destroy
+    redirect_to @product, notice: "Review deleted!"
   end
+
+  private
 
   def require_login
     unless current_user
       flash[:alert] = "You must be logged in to post reviews!"
       redirect_to login_path
     end
+  end
+
+  def review_params
+    params.require(:review).permit(
+      :rating, 
+      :description,
+      :product_id
+    )
   end
 end

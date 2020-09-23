@@ -10,7 +10,6 @@
 
     .form-group {
       display: flex;
-      width: 100%;
   
       .form-rating {
         margin-right: 1em;
@@ -43,6 +42,18 @@
         background-color: #ddd;
         padding: 0.5em;
         border-radius: 50%;
+      }
+    }
+
+    aside.review-controls {
+      position: absolute;
+      top: 0;
+      right: 0;
+      padding: 10px;
+      font-size: 1em;
+
+      a {
+        color: red;
       }
     }
 

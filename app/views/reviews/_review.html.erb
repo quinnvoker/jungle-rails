@@ -9,4 +9,11 @@
     </span>
     <%= time_ago_in_words(review.created_at) %> ago
   </footer>
+  <% if review.user == current_user %>
+    <aside class="review-controls">
+      <%= link_to product_reviews_path(review.product, review), method: :delete, data: { confirm: 'Are you sure you want to remove this review?' } do %>
+        <%= fa_icon "trash" %>
+      <%end%>
+    </aside>
+  <% end %>
 </article>
