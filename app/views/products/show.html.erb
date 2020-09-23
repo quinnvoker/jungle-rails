@@ -30,7 +30,34 @@
     <div class="row">
       <section class="product-reviews">
         <h3>Reviews</h3>
-        <%= render @product.reviews %>
+          <%= form_for [@product, @review] do |form| %>
+
+            <% if form.object.errors.any? %>
+              <div class="alert alert-danger">
+                <strong>The following errors prevented saving:</strong>
+                <ul>
+                  <% form.object.errors.full_messages.each do |error| %>
+                    <li><%= error %></li>
+                  <% end %>
+                </ul>
+              </div>
+            <% end %>
+
+            <div class="form-group">
+              <div class="form-rating">
+                <%= form.label :rating %>
+                <%= form.select :rating, options_for_select([1,2,3,4,5]), { include_blank: false }, class: 'form-control' %>
+              </div>
+              <div class="form-description">
+                <%= form.label :description %>
+                <%= form.text_area :description, class: 'form-control' %>
+              </div>
+            </div>
+
+            <%= form.submit 'Add Review', class: 'btn btn-primary' %>
+          <% end %>
+          <%= render @product.reviews %>
+        </div>
       </section>
     </div>
 

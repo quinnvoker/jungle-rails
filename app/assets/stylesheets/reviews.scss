@@ -4,6 +4,24 @@
   margin-top: 2em;
   align-items: center;
 
+  form {
+    display: flex;
+    flex-direction: column;
+
+    .form-group {
+      display: flex;
+      width: 100%;
+  
+      .form-rating {
+        margin-right: 1em;
+      }
+
+      .form-description {
+        flex-grow: 1;
+      }
+    }
+  }
+
   .review {
     position:  relative;
 
