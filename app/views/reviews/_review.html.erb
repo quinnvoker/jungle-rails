@@ -1,14 +1,12 @@
-<% if review.id %>
-  <article class="review">
-    <section class="review-info">
-      <h4 class="review-rating"><%= review.rating %>/5</h4>
-      <span><%= review.description %></span>
-    </section>
-    <footer>
-      <span class="review-username">
-        <%= review.user.first_name %> <%= review.user.last_initial %>.
-      </span>
-      <%= time_ago_in_words(review.created_at) %> ago
-    </footer>
-  </article>
-<%end%>
+<article class="review">
+  <section class="review-info">
+    <h4 class="review-rating"><%= review.rating %>/5</h4>
+    <span><%= review.description %></span>
+  </section>
+  <footer>
+    <span class="review-username">
+      <%= review.user.first_name %> <%= review.user.last_initial %>.
+    </span>
+    <%= time_ago_in_words(review.created_at) %> ago
+  </footer>
+</article>
