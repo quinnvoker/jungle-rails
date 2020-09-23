@@ -1,6 +1,22 @@
 # Jungle
 
-A mini e-commerce application built with Rails 4.2 for purposes of teaching Rails by example.
+A mini e-commerce application built with Rails 4.2 for purposes of teaching Rails by example, as a part of LHL's web development bootcamp.
+
+## Screenshots
+
+<img alt="Home Page" src="https://github.com/quinnvoker/jungle-rails/blob/master/docs/images/home.png" height="256"> 
+<img alt="Product Details and Reviews" src="https://github.com/quinnvoker/jungle-rails/blob/master/docs/images/reviews.png" height="256">
+<img alt="Customer's Cart" src="https://github.com/quinnvoker/jungle-rails/blob/master/docs/images/cart.png" height="256">
+
+## Features
+
+* Users can register or log in
+* Users can browse a selection of products and categories
+* Users can add products to their cart and submit orders
+  * On submission, order reciepts will be emailed to user
+* Users can read and create reviews on a particular product
+* Administrators can create new products and categories
+* Administrators can delete products
 
 
 ## Setup
@@ -19,6 +35,7 @@ A mini e-commerce application built with Rails 4.2 for purposes of teaching Rail
 Use Credit Card # 4111 1111 1111 1111 for testing success scenarios.
 
 More information in their docs: <https://stripe.com/docs/testing#cards>
+
 
 ## Dependencies
 
