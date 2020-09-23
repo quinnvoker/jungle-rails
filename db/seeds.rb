@@ -166,7 +166,8 @@ shoes.reviews.create!({
 
 shoes.reviews.create!({
   user_id: user3.id,
-  rating: 2
+  rating: 2,
+  description: "Didn't fit me. :("
 })
 
 watch.reviews.create!({
@@ -175,9 +176,10 @@ watch.reviews.create!({
   description: "I can't feel my fingers anymore, but with this much functionality, who needs them?"
 })
 
-shoes.reviews.create!({
-  user_id: user3.id,
-  rating: 4
+watch.reviews.create!({
+  user_id: user1.id,
+  rating: 4,
+  description: "It keeps rolling around my wrist when I use it, but just watching those vibrant colours go round is enough for me."
 })
 
 chair.reviews.create!({

@@ -19,4 +19,8 @@ class User < ActiveRecord::Base
     end
   end
 
+  def last_initial
+    self.last_name[0,1]
+  end
+
 end
